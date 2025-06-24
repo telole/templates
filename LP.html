@@ -5,40 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>STTP</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Poppins', sans-serif; }
     html, body { height: 100%; overflow-x: hidden; }
+    
+    /* Mobile menu toggle */
+    .mobile-menu { display: none; }
+    .mobile-menu.active { display: block; }
+    
+    /* Smooth animations */
+    .fade-in { animation: fadeIn 0.5s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
 </head>
 <body class="bg-white text-gray-800">
 
   <!-- NAVBAR -->
   <nav class="bg-[#013D7B] fixed top-0 left-0 w-full z-50 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <img src="4da56315-7750-46a2-9dc5-ec472f38a705-removebg-preview.png" alt="Logo" class="h-12 w-auto" />
-        <span class="text-white font-bold text-lg hidden sm:block">SEKOLAH TINGGI TEKNIK PATI</span>
-      </div>
-      <div class="flex items-center space-x-6">
-        <div class="hidden md:flex space-x-6 items-center">
+    <div class="max-w-7xl mx-auto px-4 py-3 md:py-4">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2 md:space-x-3">
+          <img src="4da56315-7750-46a2-9dc5-ec472f38a705-removebg-preview.png" alt="Logo" class="h-10 md:h-12 w-auto" />
+          <span class="text-white font-bold text-sm md:text-lg hidden sm:block">SEKOLAH TINGGI TEKNIK PATI</span>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center space-x-6">
           <div class="relative group">
-            <button class="text-white hover:text-yellow-300">Profil</button>
+            <button class="text-white hover:text-yellow-300 transition-colors">Profil</button>
             <div class="absolute left-0 mt-2 w-40 bg-white rounded shadow-lg hidden group-hover:block z-50">
-              <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Visi Misi</a>
+              <a href="#profil" class="block px-4 py-2 text-sm text-black hover:bg-gray-100">Visi Misi</a>
             </div>
           </div>
-          <div class="relative group">
-            <button class="text-white hover:text-yellow-300">Akademik</button>
-          </div>
-          <a href="#perpustakaan" class="text-white hover:text-yellow-300">Perpustakaan</a>
-          <a href="#penelitian" class="text-white hover:text-yellow-300">Penelitian</a>
+          <button class="text-white hover:text-yellow-300 transition-colors">Akademik</button>
+          <a href="#perpustakaan" class="text-white hover:text-yellow-300 transition-colors">Perpustakaan</a>
+          <a href="#penelitian" class="text-white hover:text-yellow-300 transition-colors">Penelitian</a>
+          <a href="#daftar" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded transition-all">
+            Daftar Sekarang
+          </a>
         </div>
-        <a href="#daftar" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded transition-all">
-          Daftar Sekarang
-        </a>
+
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden text-white p-2" id="mobileMenuBtn">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu lg:hidden mt-4 pb-4" id="mobileMenu">
+        <div class="flex flex-col space-y-3">
+          <a href="#profil" class="text-white hover:text-yellow-300 py-2">Profil</a>
+          <a href="#akademik" class="text-white hover:text-yellow-300 py-2">Akademik</a>
+          <a href="#perpustakaan" class="text-white hover:text-yellow-300 py-2">Perpustakaan</a>
+          <a href="#penelitian" class="text-white hover:text-yellow-300 py-2">Penelitian</a>
+          <a href="#daftar" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded transition-all text-center mt-4">
+            Daftar Sekarang
+          </a>
+        </div>
       </div>
     </div>
   </nav>
@@ -50,433 +79,659 @@
       <img src="AWR_00561_c00bbb0ecb_bd2c846592.webp" class="absolute w-full h-full object-cover opacity-0 transition-opacity duration-1000 brightness-50" alt="Image 2">
       <img src="AWR_00607_fbcb658d1a_e62bdf523b.webp" class="absolute w-full h-full object-cover opacity-0 transition-opacity duration-1000 brightness-50" alt="Image 3">
 
-      <div class="absolute inset-0 flex flex-col items-start justify-center px-6 md:px-20 text-white z-10">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Selamat Datang <br> di Sekolah Tinggi Teknik Pati</h1>
-        <p class="text-lg mb-6">To be Technopreneur</p>
-        <a href="#daftar" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-6 rounded transition-all">
+      <div class="absolute inset-0 flex flex-col items-start justify-center px-4 md:px-20 text-white z-10">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+          Selamat Datang <br class="hidden sm:block"> 
+          di Sekolah Tinggi Teknik Pati
+        </h1>
+        <p class="text-base md:text-lg mb-6">To be Technopreneur</p>
+        <a href="#daftar" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 md:py-3 px-4 md:px-6 rounded transition-all text-sm md:text-base">
           Daftar Sekarang
         </a>
       </div>
     </div>
   </div>
 
-<!-- ALUR PENDAFTARAN -->
-<div id="daftar"
-     class="scroll-mt-32 min-h-screen flex items-center justify-center bg-cover bg-fixed bg-center px-4 py-20"
-     style="background-color:#013D7B">
-  <div class="max-w-4xl w-full bg-white bg-opacity-95 shadow-lg px-8 md:px-12 pt-12 pb-16 rounded-lg">
-    <h2 class="text-3xl font-bold text-center text-blue-900 mb-2">
-      Alur Pendaftaran
-    </h2>
-    <div class="w-24 h-1 bg-yellow-400 mx-auto mb-16 rounded-full"></div>
+  <!-- ALUR PENDAFTARAN -->
+  <div id="daftar" class="scroll-mt-32 min-h-screen flex items-center justify-center bg-cover bg-fixed bg-center px-4 py-10 md:py-20" style="background-color:#013D7B">
+    <div class="max-w-4xl w-full bg-white bg-opacity-95 px-4 sm:px-6 md:px-12 pt-8 md:pt-12 pb-12 md:pb-16 rounded-lg">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-blue-900 mb-2">
+        Alur Pendaftaran
+      </h2>
+      <div class="w-24 h-1 bg-yellow-400 mx-auto mb-8 md:mb-16 rounded-full"></div>
 
-    <div class="relative">
-      <!-- Garis tengah vertikal -->
-      <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300 z-0"></div>
+      <!-- Mobile Timeline -->
+      <div class="block md:hidden space-y-8">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-lg flex-shrink-0">1</div>
+          <div>
+            <h3 class="text-blue-900 font-bold text-lg mb-2">Pendaftaran Online</h3>
+            <p class="text-sm text-gray-700 mb-4 leading-relaxed">
+              Melakukan pendaftaran Online melalui website atau bisa juga datang langsung ke sekolah untuk melakukan pendaftaran
+            </p>
+            <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-4 py-2 rounded transition-all text-sm">
+              Daftar Sekarang
+            </button>
+          </div>
+        </div>
 
-      <!-- STEP 1 - Pendaftaran Online -->
-      <div class="flex items-start mb-16 relative z-10">
-        <div class="w-1/2 pr-12 relative">
-          <!-- Garis horizontal ke kiri (konsisten kuning) -->
-          <div class="absolute right-0 top-4 w-12 h-0.5 bg-yellow-400"></div>
-          
-          <h3 class="text-blue-900 font-bold text-lg mb-2">Pendaftaran Online</h3>
-          <p class="text-sm text-gray-700 mb-4 leading-relaxed">
-            Melakukan pendaftaran Online melalui website atau bisa juga datang langsung ke sekolah untuk melakukan pendaftaran
-          </p>
-          <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-4 py-2 rounded transition-all text-sm">
-            Daftar Sekarang
-          </button>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-lg flex-shrink-0">2</div>
+          <div>
+            <h3 class="text-blue-900 font-bold text-lg mb-2">Bayar Pendaftaran</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Melakukan pendaftaran Online melalui website atau bisa juga datang langsung ke sekolah untuk melakukan pendaftaran
+            </p>
+          </div>
         </div>
-        <div class="relative z-10 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-sm shadow-md">
-          1
-        </div>
-        <div class="w-1/2 pl-12"></div>
-      </div>
 
-      <!-- STEP 2 - Bayar Pendaftaran -->
-      <div class="flex items-start mb-16 relative z-10">
-        <div class="w-1/2 pr-12"></div>
-        <div class="relative z-10 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-sm shadow-md">
-          2
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-lg flex-shrink-0">3</div>
+          <div>
+            <h3 class="text-blue-900 font-bold text-lg mb-2">Verifikasi Data</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Melakukan pendaftaran Online melalui website atau bisa juga datang langsung ke sekolah untuk melakukan pendaftaran
+            </p>
+          </div>
         </div>
-        <div class="w-1/2 pl-12 relative">
-          <!-- Garis horizontal ke kanan (konsisten kuning) -->
-          <div class="absolute left-0 top-4 w-12 h-0.5 bg-yellow-400"></div>
-          
-          <h3 class="text-blue-900 font-bold text-lg mb-2">Bayar Pendaftaran</h3>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            Melakukan pendaftaran Online melalui website atau bisa juga datang langsung ke sekolah untuk melakukan pendaftaran
-          </p>
-        </div>
-      </div>
 
-      <!-- STEP 3 - Verifikasi Data -->
-      <div class="flex items-start mb-16 relative z-10">
-        <div class="w-1/2 pr-12 relative">
-          <!-- Garis horizontal ke kiri (konsisten kuning) -->
-          <div class="absolute right-0 top-4 w-12 h-0.5 bg-yellow-400"></div>
-          
-          <h3 class="text-blue-900 font-bold text-lg mb-2">Verifikasi Data</h3>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            Melakukan pendaftaran Online melalui website atau bisa juga datang langsung ke sekolah untuk melakukan pendaftaran
-          </p>
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-lg flex-shrink-0">4</div>
+          <div>
+            <h3 class="text-blue-900 font-bold text-lg mb-2">Daftar Ulang</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Bayar SPI, cicilan pertama
+            </p>
+          </div>
         </div>
-        <div class="relative z-10 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-sm shadow-md">
-          3
-        </div>
-        <div class="w-1/2 pl-12"></div>
-      </div>
 
-      <!-- STEP 4 - Daftar Ulang -->
-      <div class="flex items-start mb-16 relative z-10">
-        <div class="w-1/2 pr-12"></div>
-        <div class="relative z-10 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-sm shadow-md">
-          4
-        </div>
-        <div class="w-1/2 pl-12 relative">
-          <!-- Garis horizontal ke kanan (konsisten kuning) -->
-          <div class="absolute left-0 top-4 w-12 h-0.5 bg-yellow-400"></div>
-          
-          <h3 class="text-blue-900 font-bold text-lg mb-2">Daftar Ulang</h3>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            Bayar SPI, cicilan pertama
-          </p>
-        </div>
-      </div>
-
-      <!-- STEP 5 - Final -->
-      <div class="flex items-center relative z-10">
-        <div class="w-1/2 pr-12 flex justify-end relative">
-          <!-- Garis horizontal ke kiri (konsisten kuning dan simetris) -->
-          <div class="absolute right-0 top-4 w-12 h-0.5 bg-yellow-400"></div>
-          
-          <div class="bg-blue-900 text-white px-6 py-4 rounded-lg shadow-lg max-w-xs">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-lg flex-shrink-0">5</div>
+          <div class="bg-blue-900 text-white px-6 py-4 rounded-lg">
             <p class="font-bold text-yellow-300 text-lg mb-1">SELAMAT!</p>
+            <div class="w-15 h-1 bg-yellow-400 rounded-full my-2"></div>
             <p class="text-sm leading-relaxed">
               Anda sudah resmi menjadi Mahasiswa STTP
             </p>
           </div>
         </div>
-        <div class="relative z-10 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-sm shadow-md">
-          5
+      </div>
+
+      <!-- Desktop Timeline -->
+      <div class="hidden md:block relative">
+        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-yellow-400 z-0"></div>
+
+        <!-- Steps 1-5 (keeping original desktop layout) -->
+        <div class="flex items-start mb-16 relative z-10">
+          <div class="w-1/2 pr-12 relative">
+            <div class="absolute right-0 top-4 w-10 h-1 bg-yellow-400"></div>
+            <h3 class="text-blue-900 font-bold text-lg mb-2">Pendaftaran Online</h3>
+            <p class="text-sm text-gray-700 mb-4 leading-relaxed">
+              Melakukan pendaftaran Online melalui website atau bisa juga datang langsung ke sekolah untuk melakukan pendaftaran
+            </p>
+            <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-4 py-2 rounded transition-all text-sm">
+              Daftar Sekarang
+            </button>
+          </div>
+          <div class="relative z-10 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-xl">1</div>
+          <div class="w-1/2 pl-12"></div>
         </div>
-        <div class="w-1/2 pl-12"></div>
+
+        <div class="flex items-start mb-16 relative z-10">
+          <div class="w-1/2 pr-12"></div>
+          <div class="relative z-10 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-xl">2</div>
+          <div class="w-1/2 pl-12 relative">
+            <div class="absolute left-0 top-4 w-10 h-1 bg-yellow-400"></div>
+            <h3 class="text-blue-900 font-bold text-lg mb-2">Bayar Pendaftaran</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Melakukan pendaftaran Online melalui website atau bisa juga datang langsung ke sekolah untuk melakukan pendaftaran
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start mb-16 relative z-10">
+          <div class="w-1/2 pr-12 relative">
+            <div class="absolute right-0 top-4 w-10 h-1 bg-yellow-400"></div>
+            <h3 class="text-blue-900 font-bold text-lg mb-2">Verifikasi Data</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Melakukan pendaftaran Online melalui website atau bisa juga datang langsung ke sekolah untuk melakukan pendaftaran
+            </p>
+          </div>
+          <div class="relative z-10 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-xl">3</div>
+          <div class="w-1/2 pl-12"></div>
+        </div>
+
+        <div class="flex items-start mb-16 relative z-10">
+          <div class="w-1/2 pr-12"></div>
+          <div class="relative z-10 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-xl">4</div>
+          <div class="w-1/2 pl-12 relative">
+            <div class="absolute left-0 top-4 w-10 h-1 bg-yellow-400"></div>
+            <h3 class="text-blue-900 font-bold text-lg mb-2">Daftar Ulang</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Bayar SPI, cicilan pertama
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center relative z-10">
+          <div class="w-1/2 pr-12 flex justify-end relative">
+            <div class="absolute right-0 top-16 w-10 h-1 bg-yellow-400"></div>
+            <div class="bg-blue-900 text-white px-6 py-4 rounded-lg max-w-xs">
+              <p class="font-bold text-yellow-300 text-lg mb-1">SELAMAT!</p>
+              <div class="mt-4 w-15 h-1 bg-yellow-400 rounded-full"></div>
+              <p class="text-sm leading-relaxed">
+                Anda sudah resmi menjadi Mahasiswa STTP
+              </p>
+            </div>
+          </div>
+          <div class="relative z-10 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center font-bold text-blue-900 text-xl">5</div>
+          <div class="w-1/2 pl-12"></div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<section class="bg-white border border-blue-500 px-6 md:px-20 pt-16 pb-0 relative overflow-hidden">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 relative z-10">
-    
-    <!-- Teks -->
-    <div class="md:w-1/2 md:max-w-lg text-center md:text-left mb-10 md:mb-0">
-      <h2 class="text-blue-900 text-2xl md:text-4xl font-bold mb-4">Selayang Pandang</h2>
-      <div class="w-20 h-1 bg-yellow-400 mb-8 mx-auto md:mx-0"></div>
-      <p class="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
-        " STT Pati berkomitmen menghasilkan Lulusan Siap Kerja profesional setingkat manager di Perusahaan Nasional dan Internasional dengan kompetensi Managerial, Information Technology dan Technical Engineering berwawasan Technopreneur "
-      </p>
-      <div class="text-left">
-        <p class="text-base md:text-lg font-bold text-gray-900 mb-1">
-          Joko Suranto, M.Pd
+  <!-- SELAYANG PANDANG -->
+  <section class="bg-white border border-blue-500 px-4 md:px-20 pt-12 md:pt-16 pb-0 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-10 relative z-10">
+      
+      <!-- Text -->
+      <div class="w-full md:w-1/2 md:max-w-lg text-center md:text-left mb-8 md:mb-0">
+        <h2 class="text-blue-900 text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Selayang Pandang</h2>
+        <div class="w-20 h-1 bg-yellow-400 mb-6 md:mb-8 mx-auto md:mx-0"></div>
+        <p class="text-gray-700 text-sm md:text-base lg:text-lg leading-relaxed mb-6">
+          " STT Pati berkomitmen menghasilkan Lulusan Siap Kerja profesional setingkat manager di Perusahaan Nasional dan Internasional dengan kompetensi Managerial, Information Technology dan Technical Engineering berwawasan Technopreneur "
         </p>
-        <p class="text-sm md:text-base text-gray-600">
-          Ketua STTP
-        </p>
-      </div>
-    </div>
-<!-- Gambar Ketua -->
-<div class="md:w-1/2 relative flex justify-center md:justify-end items-center md:ml-8">
-  <!-- Lingkaran Kuning -->
-  <div class="absolute w-[350px] h-[350px] md:w-[450px] md:h-[450px] bg-yellow-400 rounded-full z-0 md:right-0 md:translate-x-12"></div>
-  <img src="ca69bb243919f3628304f9988d23adfc5a99868c.png"
-       alt="Ketua STTP - Joko Suranto, M.Pd"
-       class="relative z-10 w-auto h-[400px] md:h-[500px] object-contain md:translate-x-100">
-</div>
-
-  </div>
-</section>
-
-
-<!-- PROGRAM STUDI SECTION -->
-<section class="bg-[#000] py-20 px-6 md:px-20">
-  <div class="max-w-6xl mx-auto">
-    <!-- Header -->
-    <div class="text-center mb-16">
-      <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">Program Studi</h2>
-      <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
-    </div>
-
-    <!-- Program Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
-      <!-- S1 - INFORMATIKA -->
-      <div class=" rounded-lg overflow-hidden shadow-lg">
-        <div class="h-64 bg-gray-200 overflow-hidden">
-          <img src="Informatika.png" 
-               alt="Program Informatika" 
-               class="w-full h-full object-cover">
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="text-white font-bold text-lg mb-2">S1 - INFORMATIKA</h3>
-          <p class="text-white text-sm">Lorem ipsum</p>
-        </div>
-      </div>
-
-      <!-- S1 - TEKNIK ELEKTRO -->
-      <div class=" rounded-lg overflow-hidden shadow-lg">
-        <div class="h-64 bg-gray-200 overflow-hidden">
-          <img src="elektro.png" 
-               alt="Program Teknik Elektro" 
-               class="w-full h-full object-cover">
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="text-white font-bold text-lg mb-2">S1 - TEKNIK ELEKTRO</h3>
-          <p class="text-white text-sm">Lorem</p>
-        </div>
-      </div>
-
-      <!-- S1 - MANAJEMEN -->
-      <div class=" rounded-lg overflow-hidden shadow-lg">
-        <div class="h-64 bg-gray-200 overflow-hidden">
-          <img src="management.png" 
-               alt="Program Manajemen" 
-               class="w-full h-full object-cover">
-        </div>
-        <div class="p-6 text-center">
-          <h3 class="text-white font-bold text-lg mb-2">S1 - MANAJEMEN</h3>
-          <p class="text-white text-sm">Lorem Ipsum dolor sit amet</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROGRAM-PROGRAM STT SECTION -->
-<section class="bg-blue-900 py-20 px-6 md:px-20" style="background-color: #013D7B;">
-  <div class="max-w-6xl mx-auto">
-    <!-- Header -->
-    <div class="text-center mb-16">
-      <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">Program-program STT</h2>
-      <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
-    </div>
-
-    <!-- Program Options -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-4xl mx-auto">
-      
-      <!-- KELAS WEEKEND -->
-      <div class="text-center">
-        <!-- Icon -->
-        <div class="mb-6">
-          <svg class="w-16 h-16 mx-auto text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-          </svg>
-        </div>
-        <h3 class="text-white font-bold text-xl md:text-2xl mb-2">KELAS WEEKEND</h3>
-        <p class="text-gray-300 text-sm">Lorem</p>
-      </div>
-
-      <!-- REGULER -->
-      <div class="text-center">
-        <!-- Icon -->
-        <div class="mb-6">
-          <svg class="w-16 h-16 mx-auto text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6zm10 14.5V20H8v-3.5l4-4 4 4zm0-9V11l-4 4-4-4V7.5L12 3.5l4 4z"/>
-          </svg>
-        </div>
-        <h3 class="text-white font-bold text-xl md:text-2xl mb-2">REGULER</h3>
-        <p class="text-gray-300 text-sm">Lorem</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-<!-- 1001 ALASAN  -->
-<section class="bg-yellow-400 py-20 px-6 md:px-20 relative overflow-hidden">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
-    
-    <!-- Content Card -->
-    <div class="md:w-1/2">
-      <div class="bg-white rounded-2xl p-8 md:p-10 shadow-lg">
-        <h2 class="text-blue-900 text-2xl md:text-3xl font-bold mb-4">
-          1001 Alasan<br>
-          Mengapa Kuliah Di<br>
-          STT?
-        </h2>
-        <div class="w-16 h-1 bg-yellow-400 mb-8 rounded-full"></div>
-        
-        <!-- Alasan-->
-        <div class="space-y-6">
-          <div class="flex items-start gap-4">
-            <div class="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-            </div>
-            <p class="text-gray-700 text-sm leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-          
-          <div class="flex items-start gap-4">
-            <div class="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-            </div>
-            <p class="text-gray-700 text-sm leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-          
-          <div class="flex items-start gap-4">
-            <div class="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-            </div>
-            <p class="text-gray-700 text-sm leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-          
-          <div class="flex items-start gap-4">
-            <div class="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-            </div>
-            <p class="text-gray-700 text-sm leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-   <!-- Section Image Mbak Mbak stt-->
-<div class="md:w-1/2 relative flex justify-center items-center overflow-visible">
-  <!-- Blue Circle Background -->
-  <div class="absolute w-[500px] h-[500px] md:w-[600px] md:h-[600px] bg-blue-900 rounded-full z-0"></div>
-  <img src="3dcc0b0aff65bead75c2fc7bcaf3342834809ec9.png"
-       alt="Mbak Mbak STTP"
-       class="relative z-10 w-[700px] h-[700px] md:w-[800px] md:h-[800px] object-contain transform scale-150">
-</div>
-</div>
-</section>
-
-
-
-<!-- TESTIMONI SECTION -->
-<section class="bg-blue-900 py-20 px-6 md:px-20 relative overflow-hidden" style="background-color: #013D7B;">
-  <div class="max-w-6xl mx-auto relative z-10">
-    
-    <!-- Header -->
-    <div class="text-center mb-16">
-      <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">Testimoni Mahasiswa dan Alumni</h2>
-      <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
-    </div>
-
-    <!-- Testimonials Layout -->
-    <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-      
-      <!-- Left Side - Profile Cards -->
-      <div class="lg:w-1/2 relative">
-        <!-- Curved connecting line -->
-        <div class="absolute left-1/2 top-0 bottom-0 w-1 opacity-30">
-          <svg class="w-full h-full" viewBox="0 0 100 400" fill="none">
-            <path d="M50 0 Q80 100 50 200 Q20 300 50 400" stroke="#FCD34D" stroke-width="3" fill="none"/>
-          </svg>
-        </div>
-        
-        <!-- Profile Cards -->
-        <div class="space-y-8 relative z-10">
-          <!-- Card 1 -->
-          <div class="bg-white rounded-full px-6 py-4 flex items-center gap-4 shadow-lg max-w-sm">
-            <img src="1fd0f334dfff25b70b8f580bf639b151bcc9ff6f.jpg" 
-                 alt="Namaku SOSISEWO" 
-                 class="w-12 h-12 rounded-full object-cover">
-            <div>
-              <h4 class="font-bold text-gray-800">Namaku SOSISEWO</h4>
-              <p class="text-sm text-gray-600">Dokter bedah</p>
-            </div>
-          </div>
-          
-          <!-- Card 2 -->
-          <div class="bg-white rounded-full px-6 py-4 flex items-center gap-4 shadow-lg max-w-sm ml-8">
-            <img src="1fd0f334dfff25b70b8f580bf639b151bcc9ff6f.jpg" 
-                 alt="Mr. D" 
-                 class="w-12 h-12 rounded-full object-cover">
-            <div>
-              <h4 class="font-bold text-gray-800">Mr. D</h4>
-              <p class="text-sm text-gray-600">Hacker kelas kakap</p>
-            </div>
-          </div>
-          
-          <!-- Card 3 -->
-          <div class="bg-white rounded-full px-6 py-4 flex items-center gap-4 shadow-lg max-w-sm">
-            <img src="1fd0f334dfff25b70b8f580bf639b151bcc9ff6f.jpg" 
-                 alt="Mrs. Morana" 
-                 class="w-12 h-12 rounded-full object-cover">
-            <div>
-              <h4 class="font-bold text-gray-800">Mrs. Morana</h4>
-              <p class="text-sm text-gray-600">Spesialis ku</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Side - Featured Testimonial -->
-      <div class="lg:w-1/2">
-        <div class="bg-white rounded-2xl p-8 shadow-lg">
-          <p class="text-gray-700 text-base leading-relaxed mb-4">
-            STT mendukung penuh karier dan pendidikan saya, dengan sistem pembelajaran yang fleksibel, saya bisa meraih prestasi di akademik dan bisnis sekaligus!
+        <div class="text-center md:text-left">
+          <p class="text-base md:text-lg font-bold text-gray-900 mb-1">
+            Joko Suranto, M.Pd
           </p>
-          <div class="w-16 h-1 bg-yellow-400 rounded-full"></div>
+          <p class="text-sm md:text-base text-gray-600">
+            Ketua STTP
+          </p>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="w-full md:w-1/2 relative flex justify-center md:justify-end items-center">
+        <div class="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-yellow-400 rounded-full z-0 md:right-[-40px] md:translate-y-16"></div>
+        <img src="ca69bb243919f3628304f9988d23adfc5a99868c.png"
+             alt="Ketua STTP - Joko Suranto, M.Pd"
+             class="relative z-10 w-auto h-[400px] md:h-[500px] lg:h-[650px] object-cover md:-translate-x-8">
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM STUDI -->
+  <section class="bg-[#000] py-12 md:py-20 px-4 md:px-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Program Studi</h2>
+        <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="rounded-lg overflow-hidden shadow-lg">
+          <div class="h-48 md:h-64 bg-gray-200 overflow-hidden">
+            <img src="Informatika.png" alt="Program Informatika" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6 text-center">
+            <h3 class="text-white font-bold text-base md:text-lg mb-2">S1 - INFORMATIKA</h3>
+            <p class="text-white text-sm">Lorem ipsum</p>
+          </div>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-lg">
+          <div class="h-48 md:h-64 bg-gray-200 overflow-hidden">
+            <img src="elektro.png" alt="Program Teknik Elektro" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6 text-center">
+            <h3 class="text-white font-bold text-base md:text-lg mb-2">S1 - TEKNIK ELEKTRO</h3>
+            <p class="text-white text-sm">Lorem</p>
+          </div>
+        </div>
+
+        <div class="rounded-lg overflow-hidden shadow-lg md:col-span-2 lg:col-span-1">
+          <div class="h-48 md:h-64 bg-gray-200 overflow-hidden">
+            <img src="management.png" alt="Program Manajemen" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6 text-center">
+            <h3 class="text-white font-bold text-base md:text-lg mb-2">S1 - MANAJEMEN</h3>
+            <p class="text-white text-sm">Lorem Ipsum dolor sit amet</p>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Background Decorative Element -->
-    <div class="absolute top-1/2 left-0 w-96 h-96 opacity-10">
-      <svg viewBox="0 0 400 400" fill="none">
-        <circle cx="200" cy="200" r="180" stroke="currentColor" stroke-width="2" class="text-teal-300"/>
-      </svg>
+  <!-- PROGRAM-PROGRAM STT -->
+  <section class="bg-blue-900 py-12 md:py-20 px-4 md:px-20" style="background-color: #013D7B;">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Program-program STT</h2>
+        <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-4xl mx-auto">
+        <div class="text-center">
+          <div class="mb-6">
+            <svg class="w-12 h-12 md:w-16 md:h-16 mx-auto text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+          </div>
+          <h3 class="text-white font-bold text-lg md:text-xl lg:text-2xl mb-2">KELAS WEEKEND</h3>
+          <p class="text-gray-300 text-sm">Lorem</p>
+        </div>
+
+        <div class="text-center">
+          <div class="mb-6">
+            <svg class="w-12 h-12 md:w-16 md:h-16 mx-auto text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6zm10 14.5V20H8v-3.5l4-4 4 4zm0-9V11l-4 4-4-4V7.5L12 3.5l4 4z"/>
+            </svg>
+          </div>
+          <h3 class="text-white font-bold text-lg md:text-xl lg:text-2xl mb-2">REGULER</h3>
+          <p class="text-gray-300 text-sm">Lorem</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- 1001 ALASAN -->
+  <section class="bg-yellow-400 py-12 md:py-20 px-4 md:px-20 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 relative z-10">
+      
+      <div class="w-full md:w-1/2">
+        <div class="bg-white rounded-2xl p-6 md:p-8 lg:p-10 shadow-lg">
+          <h2 class="text-blue-900 text-xl md:text-2xl lg:text-3xl font-bold mb-4">
+            1001 Alasan<br>
+            Mengapa Kuliah Di<br>
+            STT?
+          </h2>
+          <div class="w-16 h-1 bg-yellow-400 mb-6 md:mb-8 rounded-full"></div>
+          
+          <div class="space-y-4 md:space-y-6">
+            <div class="flex items-start gap-3 md:gap-4">
+              <div class="w-5 h-5 md:w-6 md:h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <p class="text-gray-700 text-xs md:text-sm leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+            
+            <div class="flex items-start gap-3 md:gap-4">
+              <div class="w-5 h-5 md:w-6 md:h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <p class="text-gray-700 text-xs md:text-sm leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+            
+            <div class="flex items-start gap-3 md:gap-4">
+              <div class="w-5 h-5 md:w-6 md:h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <p class="text-gray-700 text-xs md:text-sm leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+            
+            <div class="flex items-start gap-3 md:gap-4">
+              <div class="w-5 h-5 md:w-6 md:h-6 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-3 h-3 md:w-4 md:h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <p class="text-gray-700 text-xs md:text-sm leading-relaxed">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="w-full md:w-1/2 relative flex justify-center items-center overflow-visible">
+        <div class="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] lg:w-[700px] lg:h-[700px] bg-blue-900 rounded-full -z-10 translate-y-12 md:translate-y-12"></div>
+        <img src="3dcc0b0aff65bead75c2fc7bcaf3342834809ec9.png"
+             alt="Mbak Mbak STTP"
+             class="absolute z-10 w-auto h-auto scale-[2.0] md:scale-[2.6] lg:scale-[2.9] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-contain">
+      </div>
+    </div>
+  </section>
 
+  <!-- TESTIMONI -->
+  <section class="bg-blue-900 py-12 md:py-20 px-4 md:px-20 relative overflow-hidden" style="background-color: #013D7B;">
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Testimoni Mahasiswa dan Alumni</h2>
+        <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+      </div>
 
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 md:gap-12">
+        <div class="w-full lg:w-1/2 relative space-y-4 md:space-y-6 transition-all duration-500" id="profileCards">
+          <!-- Cards rendered by JS -->
+        </div>
 
+        <div class="w-full lg:w-1/2">
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg transition-all duration-500" id="testimonialBox">
+            <p class="text-blue-900 text-sm md:text-base leading-relaxed mb-4 font-medium transition-all duration-500 opacity-100" id="testimonialText">
+              "STT mendukung penuh karier dan pendidikan saya, dengan sistem pembelajaran yang fleksibel..."
+            </p>
+            <div class="w-16 h-1 bg-yellow-400 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- WhatsApp Button
-  <a href="https://wa.me/6281234567890" target="_blank"
-     class="fixed bottom-6 right-6 bg-[#013D7B] text-white px-4 py-2 rounded-full flex items-center shadow-lg z-50 hover:bg-[#0252a0] transition-all space-x-2">
-    <i class="bi bi-whatsapp text-2xl text-yellow-400"></i>
-    <span class="text-sm sm:text-base font-medium">Hubungi via WhatsApp</span>
-  </a> -->
+  <!-- BERITA TERKINI -->
+  <section class="bg-gray-50 py-12 md:py-20 px-4 md:px-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-gray-900 text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Berita Terkini</h2>
+        <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+      </div>
 
-  <!-- Slideshow Script -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="h-40 md:h-48 bg-gray-200 overflow-hidden">
+            <img src="Berita.png" alt="Kreativitas Tanpa Batas" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6 bg-blue-50">
+            <p class="text-blue-600 text-xs md:text-sm mb-2 md:mb-3 font-medium">Pati, 3 Oktober 2024</p>
+            <h3 class="text-gray-900 font-bold text-sm md:text-base leading-tight">
+              Kreativitas Tanpa Batas: Menuju Indonesia Emas di Era Industri 4.0
+            </h3>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="h-40 md:h-48 bg-gray-200 overflow-hidden">
+            <img src="Berita.png" alt="Kreativitas Tanpa Batas" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6 bg-blue-50">
+            <p class="text-blue-600 text-xs md:text-sm mb-2 md:mb-3 font-medium">Pati, 3 Oktober 2024</p>
+            <h3 class="text-gray-900 font-bold text-sm md:text-base leading-tight">
+              Kreativitas Tanpa Batas: Menuju Indonesia Emas di Era Industri 4.0
+            </h3>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-1">
+          <div class="h-40 md:h-48 bg-gray-200 overflow-hidden">
+            <img src="Berita.png" alt="Kreativitas Tanpa Batas" class="w-full h-full object-cover">
+          </div>
+          <div class="p-4 md:p-6 bg-blue-50">
+            <p class="text-blue-600 text-xs md:text-sm mb-2 md:mb-3 font-medium">Pati, 3 Oktober 2024</p>
+            <h3 class="text-gray-900 font-bold text-sm md:text-base leading-tight">
+              Kreativitas Tanpa Batas: Menuju Indonesia Emas di Era Industri 4.0
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-6 md:px-8 py-2 md:py-3 rounded-lg transition-all shadow-md hover:shadow-lg text-sm md:text-base">
+          Lihat Semua Berita
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFIL -->
+  <section id="profil" class="bg-gray-900 py-12 md:py-20 px-4 md:px-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Profil</h2>
+        <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+      </div>
+
+      <div class="flex flex-col lg:flex-row items-start justify-between gap-8 md:gap-12">
+        <div class="w-full lg:w-1/2">
+          <div class="mb-8 md:mb-12">
+            <h3 class="text-yellow-400 text-lg md:text-xl lg:text-2xl font-bold mb-4">Visi</h3>
+            <p class="text-white text-sm md:text-base leading-relaxed">
+              Menjadi institusi pendidikan tinggi dibidang teknik yang unggul di Indonesia
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-yellow-400 text-lg md:text-xl lg:text-2xl font-bold mb-4 md:mb-6">Misi</h3>
+            <div class="space-y-3 md:space-y-4">
+              <div class="flex items-start gap-3">
+                <span class="text-yellow-400 font-bold text-sm md:text-base mt-1 flex-shrink-0">1.</span>
+                <p class="text-white text-sm md:text-base leading-relaxed">
+                  Membentuk insan yang berkualitas secara spiritual, emosional, intelektual dan profesional.
+                </p>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-yellow-400 font-bold text-sm md:text-base mt-1 flex-shrink-0">2.</span>
+                <p class="text-white text-sm md:text-base leading-relaxed">
+                  Menyelenggarakan penelitian dan pengembangan ilmu dengan untuk meningkatkan kualitas akademik yang unggul.
+                </p>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-yellow-400 font-bold text-sm md:text-base mt-1 flex-shrink-0">3.</span>
+                <p class="text-white text-sm md:text-base leading-relaxed">
+                  Menyelenggarakan pengabdian kepada masyarakat melalui penerapan Ilmu dan Teknik terapan.
+                </p>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-yellow-400 font-bold text-sm md:text-base mt-1 flex-shrink-0">4.</span>
+                <p class="text-white text-sm md:text-base leading-relaxed">
+                  Menyelenggarakan kerjasama kelembagaan dengan berbagai institusi baik dalam dan luar negeri untuk meningkatkan kualitas dan kinerja institusi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+          <div class="relative">
+            <img src="elektro.png"
+                 alt="Profil STTP"
+                 class="w-full max-w-sm md:max-w-md h-auto object-cover rounded-lg shadow-lg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-blue-900 py-12 md:py-16 px-4 md:px-20" style="background-color: #013D7B;">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        
+        <div class="text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start mb-4">
+            <img src="4da56315-7750-46a2-9dc5-ec472f38a705-removebg-preview.png" 
+                 alt="STTP Logo" 
+                 class="w-10 h-10 md:w-12 md:h-12 mr-3">
+            <div>
+              <h3 class="text-white font-bold text-base md:text-lg">TO BE TECHNOPRENEUR</h3>
+            </div>
+          </div>
+          
+          <p class="text-gray-300 text-xs md:text-sm mb-6 leading-relaxed">
+            Sekolahmu adalah langkah awal menuju cita-citamu. Segera daftarkan dirimu. Kami siap melayani!
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-4 md:px-6 py-2 md:py-3 rounded transition-all text-sm md:text-base">
+              Daftar Sekarang
+            </button>
+            <button class="bg-blue-700 hover:bg-blue-600 text-white font-semibold px-4 md:px-6 py-2 md:py-3 rounded transition-all text-sm md:text-base">
+              Hubungi Via WhatsApp
+            </button>
+          </div>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="text-white font-bold text-base md:text-lg mb-4">Hubungi Kami</h4>
+          <div class="space-y-3">
+            <p class="text-gray-300 text-xs md:text-sm leading-relaxed">
+              Ngepungsono, Kec. Pati, Kabupaten Pati, Jawa Tengah 59119
+            </p>
+            <p class="text-gray-300 text-xs md:text-sm">
+              (0295) 382470
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="text-white font-bold text-base md:text-lg mb-4">Sosial Media</h4>
+          <div class="space-y-2">
+            <a href="#" class="block text-gray-300 hover:text-yellow-400 text-xs md:text-sm transition-colors">
+              Facebook
+            </a>
+            <a href="#" class="block text-gray-300 hover:text-yellow-400 text-xs md:text-sm transition-colors">
+              Instagram
+            </a>
+            <a href="#" class="block text-gray-300 hover:text-yellow-400 text-xs md:text-sm transition-colors">
+              TikTok
+            </a>
+            <a href="#" class="block text-gray-300 hover:text-yellow-400 text-xs md:text-sm transition-colors">
+              YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on links
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+    // Hero slideshow
     const images = document.querySelectorAll("img.object-cover");
     let currentIndex = 0;
 
     function showNextImage() {
-      images[currentIndex].classList.remove("opacity-100");
-      images[currentIndex].classList.add("opacity-0");
-      currentIndex = (currentIndex + 1) % images.length;
-      images[currentIndex].classList.remove("opacity-0");
-      images[currentIndex].classList.add("opacity-100");
+      if (images.length > 0) {
+        images[currentIndex].classList.remove("opacity-100");
+        images[currentIndex].classList.add("opacity-0");
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.remove("opacity-0");
+        images[currentIndex].classList.add("opacity-100");
+      }
     }
 
-    images[currentIndex].classList.add("opacity-100");
-    setInterval(showNextImage, 4000);
+    if (images.length > 0) {
+      images[currentIndex].classList.add("opacity-100");
+      setInterval(showNextImage, 4000);
+    }
+
+    // Testimonials
+    const testimonials = [
+      {
+        name: "Namaku SOSISEWO",
+        job: "Dokter bedah",
+        img: "1fd0f334dfff25b70b8f580bf639b151bcc9ff6f.jpg",
+        message: "STT mendukung penuh karier dan pendidikan saya, dengan sistem pembelajaran yang fleksibel..."
+      },
+      {
+        name: "Mr. D",
+        job: "Hacker kelas kakap",
+        img: "1fd0f334dfff25b70b8f580bf639b151bcc9ff6f.jpg",
+        message: "Dengan ilmu dari STT, saya bisa menembus sistem NASA hanya pakai kopi dan semangat."
+      },
+      {
+        name: "Mrs. Morana",
+        job: "Spesialis ku",
+        img: "1fd0f334dfff25b70b8f580bf639b151bcc9ff6f.jpg",
+        message: "STT memberi saya banyak peluang untuk berkembang di dunia kesehatan dan sosial."
+      }
+    ];
+
+    let currentOrder = [...testimonials];
+    let activeIndex = 1;
+
+    const cardsContainer = document.getElementById("profileCards");
+    const testimonialText = document.getElementById("testimonialText");
+
+    function renderCards() {
+      if (!cardsContainer) return;
+      
+      cardsContainer.innerHTML = "";
+
+      currentOrder.forEach((item, i) => {
+        const isActive = i === activeIndex;
+
+        const card = document.createElement("div");
+        card.className = `
+          bg-white rounded-full px-4 md:px-6 py-3 md:py-4 flex items-center gap-3 md:gap-4 shadow-lg max-w-sm cursor-pointer
+          transform transition-all duration-500 ease-in-out
+          ${isActive ? 'scale-105 ring-2 ring-yellow-400 mx-2 md:mx-4' : 'hover:scale-105'}
+        `;
+        card.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover">
+          <div>
+            <h4 class="font-bold text-gray-800 text-sm md:text-base">${item.name}</h4>
+            <p class="text-xs md:text-sm text-gray-600">${item.job}</p>
+          </div>
+        `;
+
+        card.addEventListener("click", () => {
+          const clickedIndex = currentOrder.findIndex(t => t.name === item.name);
+          if (clickedIndex !== activeIndex) {
+            const selected = currentOrder.splice(clickedIndex, 1)[0];
+            currentOrder.splice(1, 0, selected);
+
+            if (testimonialText) {
+              testimonialText.classList.add("opacity-0");
+
+              setTimeout(() => {
+                testimonialText.innerText = item.message;
+                testimonialText.classList.remove("opacity-0");
+                testimonialText.classList.add("opacity-100");
+              }, 300);
+            }
+
+            renderCards();
+          }
+        });
+
+        cardsContainer.appendChild(card);
+      });
+    }
+
+    renderCards();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
   </script>
 
 </body>
